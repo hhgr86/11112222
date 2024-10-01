@@ -1,0 +1,22 @@
+
+default: &default
+  adapter: mysql2
+  encoding: utf8mb4
+  pool: <%= ENV.fetch("RAILS_MAX_THREADS") { 5 } %>
+  username: root
+  password: 123456
+  host: localhost
+
+development:
+  <<: *default
+  database: g_conect_development
+
+test:
+  <<: *default
+  database: g_conect_test
+
+production:
+  <<: *default
+  database: g_conect_production
+  username: g_conect
+  password: <%= ENV["g_conect_DATABASE_PASSWORD"] %>
