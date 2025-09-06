@@ -1,0 +1,9 @@
+<h1 class="mb-4">Services</h1>
+
+<%= link_to 'New Service', new_service_path, class: "btn btn-primary mb-3" %>
+
+<div class="list-group">
+  <% @services.each do |service| %>
+    <%= link_to service.name, service, class: "list-group-item list-group-item-action" %>
+  <% end %>
+</div>
