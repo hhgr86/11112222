@@ -1,0 +1,24 @@
+<%= form_with model: service, class: "needs-validation" do |f| %>
+  <% if service.errors.any? %>
+    <div class="alert alert-danger">
+      <h2 class="h5"><%= pluralize(service.errors.count, 'error') %> prohibited this service from being saved:</h2>
+      <ul class="mb-0">
+        <% service.errors.full_messages.each do |message| %>
+          <li><%= message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="mb-3">
+    <%= f.label :name, class: "form-label" %>
+    <%= f.text_field :name, class: "form-control" %>
+  </div>
+
+  <div class="mb-3">
+    <%= f.label :description, class: "form-label" %>
+    <%= f.text_area :description, class: "form-control", rows: 3 %>
+  </div>
+
+  <%= f.submit class: "btn btn-primary" %>
+<% end %>
